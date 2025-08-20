@@ -1,0 +1,1 @@
+var posts=["2025/08/20/hello-world/"];function toRandomPost(){window.open('/'+posts[Math.floor(Math.random() * posts.length)],"_self");};
