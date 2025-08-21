@@ -6931,6 +6931,61 @@ span.p.gray {
 .read-mode #article-container .note .note-icon {
   color: var(--font-color);
 }
+/* 关于页面样式优化 */
+#about-page {
+  padding-top: 2rem;
+}
+
+/* 减少各部分之间的间距 */
+#about-page .author-content {
+  margin-bottom: 2rem;
+}
+
+/* 优化头像区域 */
+#about-page .author-box {
+  margin-bottom: 1.5rem;
+}
+
+/* 优化标题区域 */
+#about-page center {
+  margin-bottom: 2rem;
+}
+
+#about-page center h1 {
+  margin-bottom: 0.5rem;
+}
+
+/* 优化 Hello About 部分的间距 */
+#about-page .hello-about {
+  margin: 2rem 0;
+  padding: 2rem 0;
+}
+
+/* 优化技能栈部分 */
+#about-page .author-content-item.skills {
+  margin-bottom: 1.5rem;
+}
+
+/* 优化各个内容项的间距 */
+#about-page .author-content-item {
+  margin-bottom: 1rem;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  #about-page {
+    padding-top: 1rem;
+  }
+  
+  #about-page .author-content {
+    margin-bottom: 1.5rem;
+  }
+  
+  #about-page .hello-about {
+    margin: 1rem 0;
+    padding: 1rem 0;
+  }
+} 
 /* Exc-UI */
 
 /* fancybox图片灯箱 */
