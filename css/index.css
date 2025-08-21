@@ -6941,6 +6941,81 @@ span.p.gray {
   display: none !important;
 }
 
+/* 优化多个生涯经历的显示 */
+.careers-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.careers-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.careers-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.careers-item .circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.career-info {
+  flex: 1;
+}
+
+.career-info .name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.career-info .role {
+  font-size: 14px;
+  color: #666;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.career-info .time {
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
+
+/* 暗色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .careers-item {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .career-info .name {
+    color: #fff;
+  }
+  
+  .career-info .role {
+    color: #ccc;
+  }
+  
+  .career-info .time {
+    color: #aaa;
+  }
+}
+
 /* 减少各部分之间的间距 */
 #about-page .author-content {
   margin-bottom: 2rem;
@@ -6976,85 +7051,19 @@ span.p.gray {
   margin-bottom: 1rem;
 }
 
-/* 多个生涯项目样式 */
-#about-page .careers-group {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-#about-page .careers-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#about-page .careers-item:last-child {
-  border-bottom: none;
-}
-
-#about-page .careers-item .circle {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-#about-page .career-info {
-  flex: 1;
-}
-
-#about-page .career-info .name {
-  font-weight: bold;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 4px;
-}
-
-#about-page .career-info .role {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 2px;
-}
-
-#about-page .career-info .time {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
 /* 响应式优化 */
 @media (max-width: 768px) {
   #about-page {
     padding-top: 1rem;
   }
-
+  
   #about-page .author-content {
     margin-bottom: 1.5rem;
   }
-
+  
   #about-page .hello-about {
     margin: 1rem 0;
     padding: 1rem 0;
-  }
-
-  #about-page .careers-item {
-    gap: 10px;
-    padding: 10px 0;
-  }
-
-  #about-page .career-info .name {
-    font-size: 14px;
-  }
-
-  #about-page .career-info .role {
-    font-size: 12px;
-  }
-
-  #about-page .career-info .time {
-    font-size: 11px;
   }
 } 
 /* Exc-UI */
