@@ -10334,7 +10334,7 @@ span.map-title {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 1p%;
+  height: 10%;
   background: var(--anzhiyu-maskbg);
   padding: 0.5rem 2rem;
   backdrop-filter: saturate(180%) blur(10px);
@@ -10589,7 +10589,7 @@ span.map-title {
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(120deg, #ff27e8 0, #ff8000 100%);
+  background: linear-gradient(120deg, #00bfff 0, #87ceeb 100%);
   color: var(--anzhiyu-white);
   background-size: 200%;
   animation: gradient 15s ease infinite;
@@ -10659,7 +10659,7 @@ span.map-title {
   min-height: 300px;
   margin-top: 20px;
   overflow: hidden;
-  color: violet;
+  color: rgb(94, 193, 242);
 }
 .author-content-item.comic-content::after {
   box-shadow: 0 -48px 203px 11px #fbe9b8 inset;
@@ -10679,7 +10679,7 @@ span.map-title {
 }
 
 .author-content-item.like-music {
-  background: url(/img/taylor-swift.png) no-repeat center;
+  background: url(/img/taylor-swift.png) no-repeat top;
   background-size: cover;
   min-height: 400px;
   color: var(--anzhiyu-white);
