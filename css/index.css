@@ -6936,6 +6936,11 @@ span.p.gray {
   padding-top: 2rem;
 }
 
+/* 隐藏头像上的绿色圆点 */
+#about-page .image-dot {
+  display: none !important;
+}
+
 /* 减少各部分之间的间距 */
 #about-page .author-content {
   margin-bottom: 2rem;
