@@ -81,19 +81,30 @@ function visitOfficialSite() {
 
 // 初始化事件监听器
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOMContentLoaded - 初始化弹窗事件监听器');
   const modal = document.getElementById('tech-detail-modal');
-  if (!modal) return;
+  if (!modal) {
+    console.log('未找到弹窗元素');
+    return;
+  }
   
   // 点击遮罩层关闭弹窗
   const overlay = modal.querySelector('.tech-modal-overlay');
   if (overlay) {
     overlay.addEventListener('click', closeTechModal);
+    console.log('遮罩层点击事件已绑定');
   }
   
   // 点击关闭按钮
   const closeBtn = modal.querySelector('.tech-modal-close');
   if (closeBtn) {
-    closeBtn.addEventListener('click', closeTechModal);
+    closeBtn.addEventListener('click', function(e) {
+      console.log('关闭按钮被点击');
+      e.preventDefault();
+      e.stopPropagation();
+      closeTechModal();
+    });
+    console.log('关闭按钮事件已绑定');
   }
   
   // 防止点击弹窗内容时关闭
@@ -117,7 +128,14 @@ if (typeof window.addEventListener !== 'undefined') {
         const modalContent = modal.querySelector('.tech-modal-content');
         
         if (overlay) overlay.addEventListener('click', closeTechModal);
-        if (closeBtn) closeBtn.addEventListener('click', closeTechModal);
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function(e) {
+            console.log('PJAX - 关闭按钮被点击');
+            e.preventDefault();
+            e.stopPropagation();
+            closeTechModal();
+          });
+        }
         if (modalContent) {
           modalContent.addEventListener('click', function(e) {
             e.stopPropagation();

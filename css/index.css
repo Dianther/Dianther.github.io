@@ -11888,6 +11888,24 @@ span.map-title {
   color: white !important;
 }
 
+/* 确保关闭按钮可以点击 */
+.tech-modal-close {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 10001 !important;
+}
+
+/* 确保按钮和交互元素正常工作 */
+.tech-modal-btn {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.tech-modal-overlay {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
 /* 暗色主题适配 */
 [data-theme="dark"] .tech-tooltip {
   background: rgba(255, 255, 255, 0.9);
