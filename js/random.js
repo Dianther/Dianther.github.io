@@ -1,1 +1,1 @@
-var posts=["2025/08/20/hello-world/","2025/01/20/我的第一篇博客文章/","2025/01/20/computer-systeem/"];function toRandomPost(){window.open('/'+posts[Math.floor(Math.random() * posts.length)],"_self");};
+var posts=["2025/08/25/cumpuer2/","2025/01/20/computer-systeem/","2025/08/20/hello-world/","2025/01/20/我的第一篇博客文章/"];function toRandomPost(){window.open('/'+posts[Math.floor(Math.random() * posts.length)],"_self");};
