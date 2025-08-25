@@ -1,0 +1,544 @@
+<!DOCTYPE html><html lang="zh-CN"><head><link rel="stylesheet" type="text/css" href="/css/nerd.css"><link rel="stylesheet" type="text/css" href="/css/loadingcar.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper-marcus/lib/skills.min.css"><link rel="preload" as="style" type="text/css" href="/css/nerd.css"><link rel="preload" as="font" type="font/ttf" href="/fonts/font.woff2" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><script async="" data-pjax="" src="/js/custom.js"></script><script src="/js/random.js"></script><script async="" src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script><script async="" src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script><script async="" data-pjax="" src="/js/linksbar.js"></script><script async="" src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><script async="" data-pjax="" src="/js/tech-skills.js"></script><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>计算机系统基础知识-第二章 | Dianthe's Blog</title><meta name="author" content="Dianthe"><meta name="copyright" content="Dianthe"><meta name="format-detection" content="telephone=no"><meta name="theme-color"><meta name="description" content="第二章 流水线技术章节导航  第一章 基础知识（当前） 第二章 流水线技术     基本概念重复过程分解成若干个子过程+专门部件，错开进行多个处理过程  子过程→级 or 段 段数→深度  指令流水线取指令→译码→执行→存结果 时空图横坐标→时间     纵坐标→流水线各个段  特点 各个段时间应尽可能相等，避免堵塞，断流 时间最长的段&#x3D;瓶颈 每个段后都有一个缓冲（流水线）寄存器→传送数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机系统基础知识-第二章">
+<meta property="og:url" content="https://dianther.github.io/2020/01/01/computer2/index.html">
+<meta property="og:site_name" content="Dianthe&#39;s Blog">
+<meta property="og:description" content="第二章 流水线技术章节导航  第一章 基础知识（当前） 第二章 流水线技术     基本概念重复过程分解成若干个子过程+专门部件，错开进行多个处理过程  子过程→级 or 段 段数→深度  指令流水线取指令→译码→执行→存结果 时空图横坐标→时间     纵坐标→流水线各个段  特点 各个段时间应尽可能相等，避免堵塞，断流 时间最长的段&#x3D;瓶颈 每个段后都有一个缓冲（流水线）寄存器→传送数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picsum.photos/800/400?tech">
+<meta property="article:published_time" content="2019-12-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-25T10:57:15.106Z">
+<meta property="article:author" content="Dianthe">
+<meta property="article:tag" content="计算机系统">
+<meta property="article:tag" content="流水线">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picsum.photos/800/400?tech"><link rel="shortcut icon" href="/img/avatar.png"><link rel="canonical" href="https://dianther.github.io/2020/01/01/computer2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.bilicdn.tk/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.bilicdn.tk/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.bilicdn.tk/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.bilicdn.tk/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机系统基础知识-第二章',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-08-25 18:57:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/_custom/about-page.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+setTimeout(function(){preloader.endLoading();}, 3600);
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script><link rel="stylesheet" href="/css/loading.css"/><script src="https://cdn.bilicdn.tk/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 本站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/"><i class="fa-fw fas fa-house-user"></i><span> 首页</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/sites/"><i class="fa-fw fas fa-star"></i><span> 站长推荐</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 联系</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/Dianther"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" href="/authorqq/"><i class="fa-fw fab fa-qq"></i><span> 博主QQ</span></a></li><li><a class="site-page child" href="/authorwechat/"><i class="fa-fw fab fa-weixin"></i><span> 博主微信</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://picsum.photos/800/400?tech')"><nav id="nav"><div id="toggle-menu"><a class="site-page"><i class="fas fa-grip-vertical"></i></a></div><span id="blog_name"><a id="site-name" href="/"><img src="https://img1.tianli0.top/%E9%A6%96%E9%A1%B5.png" width="50" height="50"/><div class="title">Dianthe's Blog</div><i class="fa-solid fa-house"></i></a></span><div class="mask-name-container"><center id="name-container"><a id="page-name" onclick="btf.scrollToDest(0,500)"></a></center><div class="nav-button" id="nav-totop"><a class="totopbtn"><i class="fas fa-arrow-up"></i><span id="percent" onclick="btf.scrollToDest(0,500)">0</span></a></div></div><div id="menus"><div class="nav-button" id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="nav-button console-button"><a class="link" onclick="heo.showConsole()"><i class="fas fa-circle-plus fa-xl fa-beat"></i></a></div><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 本站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/"><i class="fa-fw fas fa-house-user"></i><span> 首页</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-box-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/sites/"><i class="fa-fw fas fa-star"></i><span> 站长推荐</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 联系</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/Dianther"><i class="fa-fw fab fa-github"></i><span> GitHub</span></a></li><li><a class="site-page child" href="/authorqq/"><i class="fa-fw fab fa-qq"></i><span> 博主QQ</span></a></li><li><a class="site-page child" href="/authorwechat/"><i class="fa-fw fab fa-weixin"></i><span> 博主微信</span></a></li></ul></div></div></div></nav><div id="post-info"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a><a class="post-meta__tags" href="/tags/%E6%B5%81%E6%B0%B4%E7%BA%BF/">流水线</a></div><h1 class="post-title">计算机系统基础知识-第二章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-12-31T16:00:00.000Z" title="发表于 2020-01-01 00:00:00">2020-01-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-25T10:57:15.106Z" title="更新于 2025-08-25 18:57:15">2025-08-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span></div></div></div></header><div id="console"><div class="close-btn" onclick="heo.hideConsole()"><i class="fas fa-circle-xmark"></i></div><div class="console-webinfo"><div class="console-webinfo-card"><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line fa-bounce"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name"><i class="fas fa-folder-open fa-beat"></i><div class="text">文章总数</div></div><div class="item-count">4</div></div><div class="webinfo-item"><div class="item-name"><i class="fas fa-clock fa-shake"></i><div class="text">建站天数</div></div><div class="item-count" id="runtimeshow" data-publishDate="2022-08-12T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name"><i class="fas fa-pen-to-square fa-beat"></i><div class="text">全站字数</div></div><div class="item-count">5.7k</div></div><div class="webinfo-item"><div class="item-name"><i class="fas fa-upload fa-shake"></i><div class="text">最后更新</div></div><div class="item-count" id="last-push-date" data-lastPushDate="2025-08-25T10:57:18.242Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" onclick="toRandomPost()" title="随机文章"><i class="fas fa-shuffle fa-beat" style="font-size: 1rem;"></i></a></div><div class="console-btn-item"><a class="assist-btn" target="_blank" rel="noopener" href="https://travellings.cn/go.html" title="友链接力"><i class="fas fa-bus fa-beat" style="font-size: 1rem;"></i></a></div><div class="console-btn-item"><a class="assist-btn" onclick="btf.scrollToDest(0,500), heo.hideConsole()"><i class="fas fa-arrows-up-to-line fa-beat" style="font-size: 1rem;"></i></a></div></div><div class="console-mask"></div></div><main class="layout" id="content-inner"><div id="post"><div class="dimension-toc"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text">第二章 流水线技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">1.1.1.</span> <span class="toc-text">指令流水线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E7%A9%BA%E5%9B%BE"><span class="toc-number">1.2.</span> <span class="toc-text">时空图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">特点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.</span> <span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E5%8A%9F%E8%83%BD%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.1.</span> <span class="toc-text">按照功能分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%8A%9F%E8%83%BD%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%8C%89%E7%85%A7%E5%90%8C%E4%B8%80%E6%97%B6%E9%97%B4%E5%86%85%E5%90%84%E6%AE%B5%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.2.</span> <span class="toc-text">多功能流水线按照同一时间内各段连接方式分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E9%A6%88%E5%9B%9E%E8%B7%AF%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.3.</span> <span class="toc-text">反馈回路分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E5%85%A5%E5%92%8C%E6%B5%81%E5%87%BA%E9%A1%BA%E5%BA%8F%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C"><span class="toc-number">1.3.4.</span> <span class="toc-text">流入和流出顺序是否相同</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%87%8F%E5%92%8C%E5%90%91%E9%87%8F"><span class="toc-number">1.4.</span> <span class="toc-text">标量和向量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">2.</span> <span class="toc-text">性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E7%8E%87"><span class="toc-number">2.1.</span> <span class="toc-text">吞吐率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E6%AE%B5%E6%97%B6%E9%97%B4%E7%9B%B8%E7%AD%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">各个段时间相等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E6%AE%B5%E6%97%B6%E9%97%B4%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%9B%B8%E7%AD%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">各段时间不完全相等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%93%B6%E9%A2%88%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.3.</span> <span class="toc-text">解决瓶颈问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E6%AF%94"><span class="toc-number">2.2.</span> <span class="toc-text">加速比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E6%AE%B5%E6%97%B6%E9%97%B4%E7%9B%B8%E7%AD%89"><span class="toc-number">2.2.1.</span> <span class="toc-text">各段时间相等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E6%AE%B5%E6%97%B6%E9%97%B4%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%9B%B8%E7%AD%89-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">各段时间不完全相等</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E7%8E%87"><span class="toc-number">2.3.</span> <span class="toc-text">效率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E6%AE%B5%E6%97%B6%E9%97%B4%E7%9B%B8%E7%AD%89-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">各段时间相等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E6%AE%B5%E6%97%B6%E9%97%B4%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%9B%B8%E7%AD%89%EF%BC%88%E6%83%85%E5%86%B5%E5%9C%A8%E4%B8%8B%E5%9B%BE%E4%B8%8B%E6%96%B9%EF%BC%89"><span class="toc-number">2.3.2.</span> <span class="toc-text">各段时间不完全相等（情况在下图下方）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E5%BC%80%E9%94%80"><span class="toc-number">2.4.</span> <span class="toc-text">额外开销</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98"><span class="toc-number">2.5.</span> <span class="toc-text">冲突问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E4%B8%8E%E5%86%B2%E7%AA%81"><span class="toc-number">3.</span> <span class="toc-text">相关与冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B85%E6%AE%B5RISC%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">3.1.</span> <span class="toc-text">经典5段RISC流水线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3"><span class="toc-number">3.2.</span> <span class="toc-text">相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3"><span class="toc-number">3.2.1.</span> <span class="toc-text">数据相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8D%E7%9B%B8%E5%85%B3"><span class="toc-number">3.2.2.</span> <span class="toc-text">名相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E7%9B%B8%E5%85%B3"><span class="toc-number">3.2.3.</span> <span class="toc-text">控制相关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B2%E7%AA%81"><span class="toc-number">3.3.</span> <span class="toc-text">冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%86%B2%E7%AA%81"><span class="toc-number">3.3.1.</span> <span class="toc-text">结构冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%86%B2%E7%AA%81"><span class="toc-number">3.3.2.</span> <span class="toc-text">数据冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%86%B2%E7%AA%81"><span class="toc-number">3.3.3.</span> <span class="toc-text">控制冲突</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MIPS%E4%B8%AD%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">MIPS中流水线的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MIPS%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.1.</span> <span class="toc-text">MIPS简单实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MIPS%E5%9F%BA%E6%9C%AC%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.2.</span> <span class="toc-text">MIPS基本流水线实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%EF%BC%9A%E4%B8%BB%E8%A6%81%E6%98%AF%E6%8E%A7%E5%88%B6%E5%9B%9B%E4%B8%AA%E5%A4%9A%E8%B7%AF%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">4.2.1.</span> <span class="toc-text">控制：主要是控制四个多路选择器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%86%B2%E7%AA%81-1"><span class="toc-number">4.3.</span> <span class="toc-text">控制冲突</span></a></li></ol></li></ol></div></div></div><article class="post-content" id="article-container"><h1 id="第二章-流水线技术"><a href="#第二章-流水线技术" class="headerlink" title="第二章 流水线技术"></a>第二章 流水线技术</h1><div class="note info flat"><p><strong>章节导航</strong></p>
+<ul>
+<li><a href="/2025/01/20/computer-systeem/">第一章 基础知识</a>（当前）</li>
+<li><a href="/2020/01/01/computer2/">第二章 流水线技术</a></li>
+</ul>
+</div>
+
+
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>重复过程分解成若干个子过程+专门部件，错开进行多个处理过程</p>
+<ul>
+<li>子过程→级 or 段</li>
+<li>段数→深度</li>
+</ul>
+<h3 id="指令流水线"><a href="#指令流水线" class="headerlink" title="指令流水线"></a>指令流水线</h3><p>取指令→译码→执行→存结果</p>
+<h2 id="时空图"><a href="#时空图" class="headerlink" title="时空图"></a>时空图</h2><p>横坐标→时间     纵坐标→流水线各个段</p>
+<p><img src="https://tc-cdn.flowus.cn/oss/243b6a09-081f-43c6-a3b8-22a02ef15f14/%E6%88%AA%E5%B1%8F2025-03-17%2013.24.52.png?time=1756100700&token=3c84140bb9dd20d12bb353deb0cb6f3ef26cd1daa7c6a643882645487720f782&role=free" alt="截屏2025-03-17 13.24.52.png"></p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>各个段时间应尽可能相等，避免堵塞，断流</li>
+<li>时间最长的段&#x3D;瓶颈</li>
+<li>每个段后都有一个缓冲（流水线）寄存器→传送数据，隔离工作</li>
+<li>源源不断提供任务才能提高效率</li>
+</ul>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>部件级：各种类型的运算操作</li>
+<li>处理机级（指令流水线）：指令执行过程</li>
+<li>系统级（宏流水线）：多台处理机处理同一数据流</li>
+</ul>
+<h3 id="按照功能分类"><a href="#按照功能分类" class="headerlink" title="按照功能分类"></a>按照功能分类</h3><ul>
+<li>单功能流水线</li>
+<li>多功能流水线：通过让流水线各个段进行不同连接实现不同功能，就是走不同的路以完成不同的目标</li>
+</ul>
+<h3 id="多功能流水线按照同一时间内各段连接方式分类"><a href="#多功能流水线按照同一时间内各段连接方式分类" class="headerlink" title="多功能流水线按照同一时间内各段连接方式分类"></a>多功能流水线按照同一时间内各段连接方式分类</h3><ul>
+<li>静态流水线：同一时间只能按同一种连接方式工作，前面的任务都流出来后才能改变连接（一次只能走一条路）→输入是一串相同的运算任务才能发挥其效率</li>
+<li>动态流水线：同一时间内可以按照不同方式连接执行多种功能</li>
+</ul>
+<p><img src="https://tc-cdn.flowus.cn/oss/f1af5e17-43e8-4f73-b8b2-e0bfdd78f483/image.png?time=1756100700&token=56d5086e6ecad328349a649d53a7484b445376acecdb9314ee9883a1d8951521&role=free" alt="image.png"></p>
+<p>如上图，由于同一个部件不能在同一个纵轴（相同时间）内使用，所以要错开乘法最后一步和加</p>
+<h3 id="反馈回路分类"><a href="#反馈回路分类" class="headerlink" title="反馈回路分类"></a>反馈回路分类</h3><ul>
+<li>线性流水线：没有反馈回路</li>
+<li>非线性流水线→注意调度问题，小心冲突</li>
+</ul>
+<h3 id="流入和流出顺序是否相同"><a href="#流入和流出顺序是否相同" class="headerlink" title="流入和流出顺序是否相同"></a>流入和流出顺序是否相同</h3><ul>
+<li>顺序流水线</li>
+<li>乱序流水线</li>
+</ul>
+<h2 id="标量和向量"><a href="#标量和向量" class="headerlink" title="标量和向量"></a>标量和向量</h2><ul>
+<li>标量处理机：处理机不具有向量数据表示和向量指令</li>
+<li>向量流水处理机</li>
+</ul>
+<h1 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h1><p>一般是先画图然后根据图上的数据来计算</p>
+<h2 id="吞吐率"><a href="#吞吐率" class="headerlink" title="吞吐率"></a>吞吐率</h2><p>$TP&#x3D;n&#x2F;Tk$</p>
+<ul>
+<li>Tk：处理完成n个任务所用的时间</li>
+<li>n：任务数</li>
+</ul>
+<h3 id="各个段时间相等"><a href="#各个段时间相等" class="headerlink" title="各个段时间相等"></a>各个段时间相等</h3><p>$Tk&#x3D;k*t+（n-1）*t$</p>
+<p>k→段数    t→一段所用的时间</p>
+<ul>
+<li>实际吞吐率：$TP&#x3D;n&#x2F;（k+n-1）*t$</li>
+<li>最大吞吐率：n→∞ $ TPmax&#x3D;1&#x2F;t$</li>
+<li>实际吞吐率和最大吞吐率关系：实际&lt;最大，只有当n远大于k约等于最大</li>
+</ul>
+<h3 id="各段时间不完全相等"><a href="#各段时间不完全相等" class="headerlink" title="各段时间不完全相等"></a>各段时间不完全相等</h3><p>Tk&#x3D;（各个段时间总和+（n-1）* 瓶颈t）</p>
+<ul>
+<li>实际吞吐率：n除以Tk</li>
+<li>最大吞吐率：1&#x2F;瓶颈t</li>
+</ul>
+<h3 id="解决瓶颈问题"><a href="#解决瓶颈问题" class="headerlink" title="解决瓶颈问题"></a>解决瓶颈问题</h3><ul>
+<li>细分瓶颈段→也就是减小分母瓶颈t</li>
+<li>重复设置瓶颈段：相当于增加硬件，控制逻辑变复杂了</li>
+</ul>
+<h2 id="加速比"><a href="#加速比" class="headerlink" title="加速比"></a>加速比</h2><p>不使用流水线t&#x2F;使用流水线t</p>
+<p>$S&#x3D;Ts&#x2F;Tk$</p>
+<h3 id="各段时间相等"><a href="#各段时间相等" class="headerlink" title="各段时间相等"></a>各段时间相等</h3><p>$Ts&#x3D;n<em>k</em>t$<br>$Tk&#x3D;(k+n-1)*t$</p>
+<ul>
+<li>实际加速比$S&#x3D;nk&#x2F;k+n-1$</li>
+<li>最大加速比$Smax&#x3D;k$（n→∞）</li>
+</ul>
+<p>仍然是n远大于k的时候实际加速比约等于最大加速比</p>
+<p>那么也当然不是k越大越好，k越大成本越高，逻辑越复杂（万事都要付出代价滴。。）</p>
+<h3 id="各段时间不完全相等-1"><a href="#各段时间不完全相等-1" class="headerlink" title="各段时间不完全相等"></a>各段时间不完全相等</h3><p>上图片：</p>
+<p><img src="https://tc-cdn.flowus.cn/oss/09387ebe-cc93-488c-9b02-4b484d5db4e7/%E6%88%AA%E5%B1%8F2025-03-17%2013.58.58.png?time=1756100700&token=c0eb70c8c6cb0c082502b50b9d5857cf8a3675a730a4912a5104cfdec2a8cc1b&role=free" alt="截屏2025-03-17 13.58.58.png"></p>
+<h2 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h2><p>设备实际使用时间&#x2F;整个运行时间（其实就是设备利用率）</p>
+<h3 id="各段时间相等-1"><a href="#各段时间相等-1" class="headerlink" title="各段时间相等"></a>各段时间相等</h3><p>$E&#x3D;n \div(n+k-1)$</p>
+<ul>
+<li>最高效率&#x3D;1（n→∞）</li>
+<li>$ E&#x3D;TP\times t$</li>
+<li>$E&#x3D;S \div k$<ul>
+<li>当E&#x3D;1，S&#x3D;k，此时实际加速比最大</li>
+</ul>
+</li>
+</ul>
+<h3 id="各段时间不完全相等（情况在下图下方）"><a href="#各段时间不完全相等（情况在下图下方）" class="headerlink" title="各段时间不完全相等（情况在下图下方）"></a>各段时间不完全相等（情况在下图下方）</h3><p><img src="https://tc-cdn.flowus.cn/oss/b8a98e87-70be-4ca0-969d-4424ca5bdb36/image.png?time=1756100700&token=e9762c42bbb0b6ae9b8e9632593ca91e9eede93c2824b5c5f80fba8f5d6b56dc&role=free" alt="image.png"></p>
+<h2 id="额外开销"><a href="#额外开销" class="headerlink" title="额外开销"></a>额外开销</h2><ul>
+<li>建立时间：触发写操作的时钟信号到来之前寄存器输入保持稳定时间</li>
+<li>传输延迟：时钟信号到达后寄存器输出可用时间</li>
+<li>k受到额外开销的限制，时钟周期小到与额外开销相近时流水线无意义，因为时钟周期里没有时间做有用的工作了</li>
+</ul>
+<h2 id="冲突问题"><a href="#冲突问题" class="headerlink" title="冲突问题"></a>冲突问题</h2><p>后面计算要用前面的结果，指令之间有关联，要相互等待</p>
+<h1 id="相关与冲突"><a href="#相关与冲突" class="headerlink" title="相关与冲突"></a>相关与冲突</h1><h2 id="经典5段RISC流水线"><a href="#经典5段RISC流水线" class="headerlink" title="经典5段RISC流水线"></a>经典5段RISC流水线</h2><p>取指令IF（从存储器取出放入IR）→指令译码&#x2F;读寄存器周期ID→执行&#x2F;有效地址计算EX→存储器访问&#x2F;分支完成送目标地址MEM→写回WB</p>
+<ul>
+<li>注意只有load、store、分支指令在MEM有操作，其中load→存储器到寄存器，store是寄存器→存储器，分支指令如果成功在此阶段把目标地址送进PC</li>
+<li>WB是把结果写会通用寄存器组（ALU，load）</li>
+<li>避免IF和MEM段的访存冲突→分离指令和数据存储器orcache</li>
+<li>ID和WB段访问同一寄存器文件</li>
+</ul>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><p>两条指令之间有依赖关系</p>
+<h3 id="数据相关"><a href="#数据相关" class="headerlink" title="数据相关"></a>数据相关</h3><p>i前j后，j使用i的结果  or  j使用k，j使用i（有传递性）</p>
+<p>经过寄存器好看，经过存储器要看他的<strong>有效地址</strong></p>
+<h3 id="名相关"><a href="#名相关" class="headerlink" title="名相关"></a>名相关</h3><p>名：访问的寄存器or存储单元名称</p>
+<p><strong>没有数据流动</strong>，但使用相同的名→名相关（分为先读后写，先写后写）</p>
+<ul>
+<li><p>反相关：j写的名&#x3D;i读的名</p>
+</li>
+<li><p>输出相关：j写的名&#x3D;i写的名</p>
+</li>
+<li><p>消除名相关：换名renaming：</p>
+<ul>
+<li><p>例子：</p>
+<p><img src="https://tc-cdn.flowus.cn/oss/d3d6154a-adc4-4737-85d8-cbf18aca8bd0/%E6%88%AA%E5%B1%8F2025-03-21%2015.28.28.png?time=1756100700&token=2957685b88ebf5846ed461c9892e68573f01b6a731112d3e1b132973583e50b9&role=free" alt="截屏2025-03-21 15.28.28.png"></p>
+<p><img src="https://tc-cdn.flowus.cn/oss/45091bb4-740f-4bc2-9083-d1918b0089f8/%E6%88%AA%E5%B1%8F2025-03-21%2015.28.59.png?time=1756100700&token=fa9e7ad5aab45207cc02dec29058ee0ae8c05306be2e55167d2c80d1b099b87a&role=free" alt="截屏2025-03-21 15.28.59.png"></p>
+<p>注意，由于第三条和第二条存在数据相关，所以换二的名字的同时也要换三的</p>
+<p>可以由编译器静态实现or硬件动态（解释了为什么上面用S，因为不一定就是寄存器，可能是专用的硬件来暂存）完成</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="控制相关"><a href="#控制相关" class="headerlink" title="控制相关"></a>控制相关</h3><p>由<strong>分支指令</strong>引起的相关</p>
+<ul>
+<li>if语句后的和then语句后的有控制相关</li>
+<li>与一条分支指令控制相关的指令不能被移到分支之前</li>
+<li>与分支指令不存在控制相关的不能移到分支里</li>
+</ul>
+<h2 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h2><p>由于相关的存在，会出现流水线冲突</p>
+<h3 id="结构冲突"><a href="#结构冲突" class="headerlink" title="结构冲突"></a>结构冲突</h3><p>硬件资源满足不了指令重叠的要求（需要设置重复资源）</p>
+<p>eg：load和取指令都要访问存储器，解决方法：</p>
+<ul>
+<li>插入暂停周期（气泡）</li>
+<li>设置独立的指令存储器&#x2F;cache和数据存储器&#x2F;cache，但成本较高，有时候允许结构冲突的存在</li>
+</ul>
+<h3 id="数据冲突"><a href="#数据冲突" class="headerlink" title="数据冲突"></a>数据冲突</h3><p>要用到前面指令的结果，而且相关指令靠的太近了</p>
+<ul>
+<li>写后读RAW：真数据相关，i写之前j读了</li>
+<li>写后写WAW：输出相关，i写之前j就写了。原因：不止一个段可以写or指令被重新排序了</li>
+<li>读后写WAR：反相关，i读之前j就写了。原因：有些指令写操作提前，有些读操作滞后or指令重新排序</li>
+</ul>
+<p><strong>解决方法1：定向技术</strong></p>
+<p>将 ALU 计算的结果 <strong>直接传输</strong> 给下一条指令，而不是等到 WB 阶段写回寄存器。</p>
+<ol>
+<li>前半周期写，后半周期读（从而实现同一时间对同一个寄存器的读写操作）</li>
+<li>将ALU的结果（EX&#x2F;MEM段的流水寄存器）定向传输到ALU输入（就是档前一个ALU运算结果写入寄存器&#x3D;当前ALU运算的源寄存器就选择定向数据作为ALU输入instead of通用寄存器组读出的数据），也可以将MEM&#x2F;WB的结果送到ALU输入</li>
+</ol>
+<p><strong>解决方法2：流水线互锁机制</strong></p>
+<p>上面的办法解决不了（例如无法将LD指令的结果定向到DADD，因为是从存储器读出来的，并非ALU计算结果）</p>
+<p><strong>解决方法3：编译器解决</strong></p>
+<ul>
+<li>指令调度：目前找到的方法是找到最近的冲突的指令，然后考虑能否把她们拉远一些</li>
+<li>流水线调度</li>
+</ul>
+<p>发现数据冲突使流水线停顿</p>
+<h3 id="控制冲突"><a href="#控制冲突" class="headerlink" title="控制冲突"></a>控制冲突</h3><p>由于分支指令和其他改变PC的指令冲突</p>
+<p>分支延迟：分支指令引起的延迟</p>
+<p>减少分支延迟的方法：</p>
+<ul>
+<li>尽早判断分支转移是否成功</li>
+<li>尽早计算出分支目标地址</li>
+<li>除了方法1，后续以上两步都被提前到ID段末尾完成，分支延迟一个时钟周期</li>
+</ul>
+<p><strong>解决方法1：冻结&#x2F;排空流水线</strong></p>
+<p>在ID段检测到分支指令就暂停后面所有指令的执行，直到MEM段确定新的PC</p>
+<p>（3个周期延迟）</p>
+<p><strong>解决方法2:软件减少分支延迟</strong></p>
+<p>以下讨论中，假设判断分支是否成功和更新目标地址从MEM段提前到了ID段，这样就只有一个分支延迟了</p>
+<ul>
+<li><p>预测分支失败</p>
+<ul>
+<li>真失败了那就是完全正常的流水</li>
+<li>要分支成功了就把分支指令之后取出all指令转化为空操作，饼按分支目的地重新取指令</li>
+</ul>
+</li>
+<li><p>预测分支成功</p>
+<ul>
+<li>上述办法将分支是否成功与目标地址计算在同一流水段完成，方法没有任何好处，除非是分支条件复杂，分支结果要晚于目标地址时就有好处。所以起作用的前提是我们先知道分支目标地址，后知道分支是否成功</li>
+</ul>
+</li>
+<li><p>延迟分支</p>
+<ul>
+<li><p>把分支指令&#x3D;分支指令+若干个延迟槽，掩盖了流水线原来必须插入的暂停周期</p>
+</li>
+<li><p>调度：在延迟槽中放入有用的指令</p>
+<ul>
+<li>从前调度：被调度指令与分支无关</li>
+<li>从目标处调度：必须保证失败时不会导致错误，有可能需要<strong>复制指令，分支成功起作用</strong></li>
+<li>从失败处调度：需要保证成功时不会导致错误，分支失败起作用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://tc-cdn.flowus.cn/oss/087a2f94-ab22-4fcc-a4af-0b9e3673b6ae/%E6%88%AA%E5%B1%8F2025-03-24%2013.57.04.png?time=1756100700&token=7da00db32a62e575906e8f65be88e45e4749f385add3676163394cba09dcaab9&role=free" alt="截屏2025-03-24 13.57.04.png"></p>
+<p>进一步改进：分支取消：当实际执行方向和预测不一致，将分支延迟槽中的指令转化为空操作</p>
+<h1 id="MIPS中流水线的实现"><a href="#MIPS中流水线的实现" class="headerlink" title="MIPS中流水线的实现"></a>MIPS中流水线的实现</h1><p>IF→ID→EX→MEM→WB</p>
+<p><img src="https://tc-cdn.flowus.cn/oss/bd3cdbd1-c0ba-43f3-9f69-94db12190a1d/%E6%88%AA%E5%B1%8F2025-03-24%2014.05.02.png?time=1756100700&token=5930364101601038b03546ff8aa3931195bd5fb0f48b425d736b92641732143c&role=free" alt="截屏2025-03-24 14.05.02.png"></p>
+<p>通用寄存器：64位，所以从存储器→寄存器的时候需要扩展符号位</p>
+<h2 id="MIPS简单实现"><a href="#MIPS简单实现" class="headerlink" title="MIPS简单实现"></a>MIPS简单实现</h2><p>IF：从存储器中读取指令，PC+4→NPC</p>
+<p>ID：指令译码+读取寄存器并行执行，因为他们在固定的字段上</p>
+<p>EX：进行计算，有效地址计算（可以放在一个周期是因为mips中只有load&#x2F;store需要计算有效地址）</p>
+<p>MEM：对PC进行更新，NPC→PC，只有<strong>load，store和分支</strong>有这个周期（所有指令在这个时候更新PC的值，除了分支指令其他指令NPC→PC，分支指令是ALU0→PC）</p>
+<p>WB：将ALU中的结果or存储器中的数据（load）放入指定的寄存器</p>
+<h2 id="MIPS基本流水线实现"><a href="#MIPS基本流水线实现" class="headerlink" title="MIPS基本流水线实现"></a>MIPS基本流水线实现</h2><p><img src="https://tc-cdn.flowus.cn/oss/e85f2be8-b10a-4215-9fa3-599a6511375c/%E6%88%AA%E5%B1%8F2025-03-24%2014.29.50.png?time=1756100700&token=b6963211be54ac1010db71381032e147c923d647330df25a3f7db1d04613f22f&role=free" alt="截屏2025-03-24 14.29.50.png"></p>
+<ul>
+<li>增加了段与段之间的流水寄存器</li>
+<li>IF段就完成PC的修改</li>
+</ul>
+<p>IF：取指令，修改PC（分支跳转的目标orPC+4）</p>
+<p>ID：从寄存器读数据，Imm符号为扩展为总共32位，把NPC和IR传递下去</p>
+<p>EX：ALU：完成计算；Load&#x2F;store：计算访存地址，用A算地址，把B传下去准备存入mem（store）；分支指令：计算跳转地址，分支的条件测试（分支指令到此为止）。把IR传递下去</p>
+<p>MEM：ALU：空操作，直接将ALUo的结果进一步向前传；load&#x2F;store：访存，取出上一步计算出的地址对应的数据（load）or根据上一步地址存入数据（store），把IR传递下去</p>
+<p>WB：ALU：写回目标地址；load：将存储器中取出的数据写回寄存器（按照IR指令的字段rd&#x2F;rt写回）</p>
+<h3 id="控制：主要是控制四个多路选择器"><a href="#控制：主要是控制四个多路选择器" class="headerlink" title="控制：主要是控制四个多路选择器"></a>控制：主要是控制四个多路选择器</h3><ol start="3">
+<li>PC+4or目标地址（分支指令&amp;&amp;条件成立）</li>
+<li>传送NPC还是A（取决于是不是分支指令）</li>
+<li>B还是Imm（取决于是否是寄存器-寄存器型ALU指令，是&#x3D;B）</li>
+<li>LMDorALUo（取决于是不是load，load就是LMD）</li>
+<li>写回寄存器是rd还是rt（RR-rd；RI-rt）</li>
+</ol>
+<p><strong>解决数据冲突—-流水线互锁机制</strong></p>
+<p>所有数据冲突可以在ID检测到（比较寄存器地址），如果有就把相应指令暂停（后面的操作吗改成0）</p>
+<p>load互锁——由于使用load的结果而引起流水线互锁</p>
+<h2 id="控制冲突-1"><a href="#控制冲突-1" class="headerlink" title="控制冲突"></a>控制冲突</h2><p>在ID段完成PC修改和分支目标地址计算和条件测试：</p>
+<p><img src="https://tc-cdn.flowus.cn/oss/08f552b8-1c96-4e60-ba59-49ee76ec3737/%E6%88%AA%E5%B1%8F2025-03-24%2014.42.25.png?time=1756100700&token=f7c0256c31b89e4fc60750ac8fbed4306f4785b9d8697c42735ff9ea4b579aec&role=free" alt="截屏2025-03-24 14.42.25.png"></p>
+<p><img src="https://tc-cdn.flowus.cn/oss/817414cb-1b49-4d2e-aa7b-67185b77ebc0/%E6%88%AA%E5%B1%8F2025-06-04%2020.18.12.png?time=1756100700&token=cf6c560900217c951361839a0b3b4a7a05ab65e0d148f4fc0f0a7fd6736eee88&role=free" alt="截屏2025-06-04 20.18.12.png"></p>
+<p>问题，既然load的结果能定向到ALU，前面说不行的素在？</p>
+<p>前面是因为load的结果出不来所以不能定向</p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>计算机系统基础知识-第二章</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://dianther.github.io/2020/01/01/computer2/">https://dianther.github.io/2020/01/01/computer2/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a" style="display: inline-block;width: 120px"><h>作者</h><div class="post-copyright-cc-info"><h>Dianthe</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>发布于</h><div class="post-copyright-cc-info"><h>2020-01-01</h></div></div><div class="post-copyright-u" style="display: inline-block;width: 120px"><h>更新于</h><div class="post-copyright-cc-info"><h>2025-08-25</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="/cc/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY 4.0" href="/cc/">CC BY 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">计算机系统</a><a class="post-meta__tags" href="/tags/%E6%B5%81%E6%B0%B4%E7%BA%BF/">流水线</a></div><div class="post_share"><div class="social-share" data-image="https://picsum.photos/800/400?tech" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.bilicdn.tk/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.bilicdn.tk/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://ezgx.site/img/wechatpay.jpg" target="_blank"><img class="post-qr-code-img" src="https://ezgx.site/img/wechatpay.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2025/01/20/computer-systeem/"><img class="prev-cover" src="https://picsum.photos/800/400?tech" onerror="onerror=null;src='https://ezgx.site/img/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机系统基础知识</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Twikoo</span><span class="switch-btn"></span><span class="second-comment">Waline</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div id="waline-wrap"></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener external nofollow" href="https://home.ezgx.site/" title="个人主页"><i class="fa-solid fa-compass"></i></a><a class="deal_link" target="_blank" rel="noopener external nofollow" href="https://res.abeim.cn/api/qq/?qq=3387251845" title="联系QQ"><i class="fa-brands fa-qq"></i></a><a class="deal_link" href="/authorwechat/" title="联系微信"><i class="fa-brands fa-weixin"></i></a><img class="footer_mini_logo entered loading" style="border-radius:50%" src="/img/avatar.png" onclick="btf.scrollToDest(0,500)" title="返回顶部"/><a class="deal_link" target="_blank" rel="noopener external nofollow" href="https://github.com/ezgx" title="Github"><i class="fa-brands fa-github"></i></a><a class="deal_link" href="/comments/" title="留言"><i class="fa-solid fa-comment"></i></a><a class="deal_link" target="_blank" rel="noopener external nofollow" href="mailto:3387251845@qq.com" title="发送邮件"><i class="fa-solid fa-envelope"></i></a></div><div id="Jay-footer"><div class="footer-group"><h3 class="footer-title">直达</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener" href="https://home.ezgx.site">个人主页</a><a class="footer-item" href="/about/">关于</a><a class="footer-item" href="/link/">友链</a><a class="footer-item" href="javascript:toRandomPost()">随机文章</a></div></div><div class="footer-group"><h3 class="footer-title">标签</h3><div class="footer-links"><a class="footer-item" href="/tags/%E6%95%99%E7%A8%8B/">📚教程</a><a class="footer-item" href="/categories/butterfly/">🦋魔改教程</a><a class="footer-item" href="/categories/%E5%89%8D%E7%AB%AF/">🌈捣鼓前端</a><a class="footer-item" href="/categories/%E7%94%9F%E6%B4%BB/">📙生活记录</a></div></div><div class="footer-group"><h3 class="footer-title">我的</h3><div class="footer-links"><a class="footer-item" href="/about/">关于</a><a class="footer-item" href="/archives/">归档</a><a class="footer-item" href="/tags/">标签</a><a class="footer-item" href="/categories/">分类</a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/cc/">版权协议</a><a class="footer-item" target="_blank" rel="noopener" href="https://github.com/Ezgx/hexo-theme-dimension/blob/main/LICENSE">主题协议</a><a class="footer-item" href="javascript:void(0)">占位</a><a class="footer-item" href="javascript:void(0)">占位</a></div></div></div><div id="footer-banner"><div class="footer-banner-links"><div class="footer-banner-left"><div class="footer-banner-left"><div id="footer-banner-tips">2023 ©Echocbx</div></div></div><div class="footer-banner-right"><a class="footer-banner-link" target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" title="Hexo">框架：Hexo</a><a class="footer-banner-link">|</a><a class="footer-banner-link" href="/2023/dimension" title="theme">主题：dimension</a><a class="footer-banner-link">|</a><a class="footer-banner-link" href="/about/" title="about">关于</a><a class="footer-banner-link">|</a><a class="footer-banner-link cc" href="/cc/" title="cc协议"><i class="fab fa-creative-commons"></i><span>协议。</span></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.bilicdn.tk/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: '',
+      region: 'ap-shanghai',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: '',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.bilicdn.tk/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.bilicdn.tk/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: '',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.bilicdn.tk/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Twikoo' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script src="https://cdn.bilicdn.tk/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.bilicdn.tk/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="欢迎来到,Echocbx的,博客" data-fontsize="16px" data-random="false" async="async"></script><script src="https://cdn.bilicdn.tk/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="hometop.js"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div><span id="fps"></span></body></html>
