@@ -11734,7 +11734,7 @@ span.map-title {
 .tech-modal-title {
   font-size: 24px;
   font-weight: 600;
-  color: var(--anzhiyu-font-color);
+  color: white;
   flex: 1;
 }
 
@@ -11751,7 +11751,7 @@ span.map-title {
   border-radius: 50%;
   cursor: pointer;
   font-size: 20px;
-  color: var(--anzhiyu-font-color);
+  color: white;
   transition: all 0.3s ease;
 }
 
@@ -11768,7 +11768,7 @@ span.map-title {
 .tech-modal-description {
   font-size: 16px;
   line-height: 1.6;
-  color: var(--anzhiyu-font-color);
+  color: white;
   margin-bottom: 24px;
 }
 
@@ -11803,7 +11803,7 @@ span.map-title {
 
 .tech-modal-btn.visit-official {
   background: var(--anzhiyu-secondbg);
-  color: var(--anzhiyu-font-color);
+  color: white;
   border: 1px solid var(--anzhiyu-border-color);
 }
 
