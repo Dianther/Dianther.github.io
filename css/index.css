@@ -11974,6 +11974,12 @@ span.map-title {
   line-height: 1.5;
 }
 
+.no-cats {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--anzhiyu-secondtext);
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .cats-container {
