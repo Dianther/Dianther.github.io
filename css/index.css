@@ -11734,7 +11734,7 @@ span.map-title {
 .tech-modal-title {
   font-size: 24px;
   font-weight: 600;
-  color: white;
+  color: white !important;
   flex: 1;
 }
 
@@ -11751,7 +11751,7 @@ span.map-title {
   border-radius: 50%;
   cursor: pointer;
   font-size: 20px;
-  color: white;
+  color: white !important;
   transition: all 0.3s ease;
 }
 
@@ -11768,7 +11768,7 @@ span.map-title {
 .tech-modal-description {
   font-size: 16px;
   line-height: 1.6;
-  color: white;
+  color: white !important;
   margin-bottom: 24px;
 }
 
@@ -11803,12 +11803,13 @@ span.map-title {
 
 .tech-modal-btn.visit-official {
   background: var(--anzhiyu-secondbg);
-  color: white;
+  color: white !important;
   border: 1px solid var(--anzhiyu-border-color);
 }
 
 .tech-modal-btn.visit-official:hover {
   background: var(--anzhiyu-border-color);
+  color: white !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
@@ -11876,6 +11877,15 @@ span.map-title {
   .tech-desc {
     font-size: 11px;
   }
+}
+
+/* 弹窗全局白色文字强制样式 */
+.tech-modal * {
+  color: white !important;
+}
+
+.tech-modal-content * {
+  color: white !important;
 }
 
 /* 暗色主题适配 */
